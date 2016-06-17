@@ -1,0 +1,19 @@
+<div class="jumbotron">
+<div class="row marketing">
+   <table class='table' ng-hide="!playlists.length">
+      <thead>
+          <tr>
+              <th>My Playlists</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='playlist in playlists'>
+            <td><a ui-sref="playlist">{{playlist.name}}</a></td>
+        </tr>
+      </tbody>
+
+    <iframe src="https://embed.spotify.com/?uri=spotify:user:1240449583:playlist:5pjfmqHz43Keaarnp6S9V1" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+  
+  <button ng-click="login()">Click me!</button>
+
+</div>
