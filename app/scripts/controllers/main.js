@@ -19,6 +19,7 @@ angular.module('myNewProjectApp')
   		})
   		.then(function(userId){
   			console.log(userId)
+  			localStorage.setItem('user-id', userId)
   			Spotify.getUserPlaylists(userId)
   			.then(function (playlists) {
   				$scope.playlists = playlists.items

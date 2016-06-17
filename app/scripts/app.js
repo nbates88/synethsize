@@ -40,7 +40,7 @@ angular
         // controllerAs: 'about'
       })
         .state('playlist', {
-          url: '/playlist/:playlistUri',
+          url: '/playlist/:playlistId',
           templateUrl: 'views/playlist.html',
           controller: 'PlaylistCtrl'
       });

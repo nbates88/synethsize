@@ -1,4 +1,21 @@
 <div class="playlist">
-     <iframe src="https://embed.spotify.com/?uri=spotify:user:{{user}}:playlist:{{playlist}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-  
+  <section ng-controller="PlaylistCtrl">
+   <table class='table'>
+      <thead>
+          <tr>
+              <th>{{playlist.name}}</th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat='song in playlistSongs' ng-hide="!song.track.preview_url">
+            <td ng-click = "playSong(song.track.preview_url, song.track.id)">{{song.track.name}}</a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <audio controls ng-src="{{src}}" autoplay>
+     <!-- The next line will only be executed if the browser doesn't support the <audio> tag-->
+     <p>Your user agent does not support the HTML5 Audio element.</p>
+    </audio>
+  </section>
 </div>
