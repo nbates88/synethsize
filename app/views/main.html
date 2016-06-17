@@ -1,5 +1,5 @@
 <div class="jumbotron">
-<div class="row marketing">
+   <section ng-controller="MainCtrl">
    <table class='table' ng-hide="!playlists.length">
       <thead>
           <tr>
@@ -8,12 +8,10 @@
       </thead>
       <tbody>
         <tr ng-repeat='playlist in playlists'>
-            <td><a ui-sref="playlist">{{playlist.name}}</a></td>
+            <td><a ui-sref="playlist({playlistId: playlist.id})">{{playlist.name}}</a></td>
         </tr>
       </tbody>
-
-    <iframe src="https://embed.spotify.com/?uri=spotify:user:1240449583:playlist:5pjfmqHz43Keaarnp6S9V1" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-  
-  <button ng-click="login()">Click me!</button>
-
+  <button ng-click="login()">Login to Spotify</button>
+  </table>
+  </section>
 </div>

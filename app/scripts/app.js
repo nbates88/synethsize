@@ -16,24 +16,33 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'spotify'
+    'spotify',
+    'ui.router'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/about', {
+      .state('about', {
+        url:'/about',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/callback', {
+      .state('callback', {
+        url: '/callback',
         templateUrl: 'views/callback.html',
         // controller: 'AboutCtrl',
         // controllerAs: 'about'
+      })
+        .state('playlist', {
+          url: '/playlist/:playlistUri',
+          templateUrl: 'views/playlist.html',
+          controller: 'PlaylistCtrl'
       });
       // .otherwise({
       //   redirectTo: '/'
