@@ -1,6 +1,11 @@
-<div class="jumbotron">
+
    <section ng-controller="MainCtrl">
-   <table class='table' ng-hide="!playlists.length">
+   <div class = "jumbotron" ng-hide = "playlists.length">
+     <h1>Welcome to Synethsize!</h1>
+     <h3>Login to Your Spotify Account to Play</h3>
+      <button class="btn btn-raised btn-success" ng-click="login()">Login to Spotify</button>
+   </div>
+  <!--  <table class='table' ng-hide="!playlists.length">
       <thead>
           <tr>
               <th>My Playlists</th>
@@ -8,10 +13,38 @@
       </thead>
       <tbody>
         <tr ng-repeat='playlist in playlists'>
-            <td><a ui-sref="playlist({playlistId: playlist.id})">{{playlist.name}}</a></td>
+            <td>
+            <a ui-sref="playlist({playlistId: playlist.id, playlistUser: playlist.owner.id})"> 
+              {{ playlist.name }}
+              <img ng-src="{{playlist.images[1].url}}"/>
+            </a>
+            </td>
         </tr>
       </tbody>
-  <button ng-click="login()">Login to Spotify</button>
   </table>
-  </section>
+   -->
+ <!--  <div>
+    <div ng-repeat='playlist in playlists' ng-if="$index % 3 == 0" class="row">{{}}
+    <a ui-sref="playlist({playlistId: playlist.id, playlistUser: playlist.owner.id})"><img ng-src="{{playlist.images[1].url || 'https://placeholdit.imgix.net/~text?txtsize=28&txt=No+Image&w=300&h=300'}}"/></a>
+    </div>
+  </div> -->
+ <!--  <div class="row">
+    <div ng-repeat="playlist in playlists">
+        <div class="clearfix" ng-if="$index % 3 == 0"></div>
+        <div>
+            <a ui-sref="playlist({playlistId: playlist.id, playlistUser: playlist.owner.id})"><img ng-src="{{playlist.images[1].url || 'https://placeholdit.imgix.net/~text?txtsize=28&txt=No+Image&w=300&h=300'}}"/></a>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="row" ng-repeat="rows in chunkedPlaylists">
+  <div class="span4" ng-repeat="playlist in rows">{{}}<a ui-sref="playlist({playlistId: playlist.id, playlistUser: playlist.owner.id})"><img ng-src="{{playlist.images[1].url || 'https://placeholdit.imgix.net/~text?txtsize=28&txt=No+Image&w=300&h=300'}}"/></a></div>
+</div> -->
+<div class="columns">
+  <div ng-repeat="playlist in playlists">
+    {{}}<a ui-sref="playlist({playlistId: playlist.id, playlistUser: playlist.owner.id})"><img ng-src="{{playlist.images[1].url || 'https://placeholdit.imgix.net/~text?txtsize=28&txt=No+Image&w=300&h=300'}}"/></a></div>
+  </div>
 </div>
+\
+  </section>
+

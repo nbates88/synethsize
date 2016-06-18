@@ -17,6 +17,9 @@ body {
   padding-right: 15px;
 }
 
+.columns {
+  columns: 3;
+}
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -62,7 +65,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 75%;
   }
 
   /* Remove the padding we set earlier */

@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'spotify',
-    'ui.router'
+    'ui.router',
+    'angular.filter'
   ])
   .config(function ($stateProvider) {
     $stateProvider
@@ -40,7 +41,7 @@ angular
         // controllerAs: 'about'
       })
         .state('playlist', {
-          url: '/playlist/:playlistId',
+          url: '/playlist/:playlistUser/:playlistId',
           templateUrl: 'views/playlist.html',
           controller: 'PlaylistCtrl'
       });

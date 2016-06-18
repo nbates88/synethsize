@@ -8,10 +8,19 @@
       </thead>
       <tbody>
         <tr ng-repeat='song in playlistSongs' ng-hide="!song.track.preview_url">
-            <td ng-click = "playSong(song.track.preview_url, song.track.id)">{{song.track.name}}</a></td>
+            <td> <a ng-click = "playSong(song.track.preview_url, song.track.id)">{{song.track.name}}</a></td>
         </tr>
       </tbody>
     </table>
+    <div ng-class="{ 'hidden': !playSong }">
+      <div style="width:500px;height:100px;border:1px solid #000;margin:10px;background-color:rgb({{songColorOne}})" ng-click = "chosenColor(songColorOne)"></div>
+      <div style="width:500px;height:100px;border:1px solid #000;margin:10px;background-color:rgb({{songColorTwo}})" ng-click = "chosenColor(songColorTwo)"></div>
+      <div style="width:500px;height:100px;border:1px solid #000;margin:10px;background-color:rgb({{songColorThree}})" ng-click = "chosenColor(songColorThree)"></div>
+      <div style="width:500px;height:100px;border:1px solid #000;margin:10px;background-color:rgb({{songColorFour}})" ng-click = "chosenColor(songColorFour)"></div>
+
+    </div>
+
+    <div class="feedback" style="margin:50px;">{{feedback}}</div>
 
     <audio controls ng-src="{{src}}" autoplay>
      <!-- The next line will only be executed if the browser doesn't support the <audio> tag-->
