@@ -2,7 +2,8 @@
 
 
 angular.module('myNewProjectApp')
-  .controller('PlaylistCtrl', function (Spotify, $scope, $stateParams, $sce) {
+  .controller('PlaylistCtrl', function (Spotify, $scope, $stateParams, $sce, $state) {
+  	$scope.Model = $scope.Model || {Name : "xxx"};
     var playlistId = $stateParams.playlistId;
     var playlistUser = $stateParams.playlistUser
     var userId = localStorage.getItem('user-id');
@@ -16,14 +17,15 @@ angular.module('myNewProjectApp')
 	    console.log($scope.playlistSongs);
 	  });
 
-
 	$scope.playSong = function(songUrl, songId){
+
 		var h;
 		var s;
 		var v;
-		$scope.feedback = "";
+
+		$scope.feedback = "Make a guess!";
 		$scope.src = $sce.trustAsResourceUrl(songUrl);
-		
+
 		Spotify.getTrackAudioFeatures(songId)
 		.then(function (audioFeatures) {
 			console.log("AUDIO", audioFeatures)

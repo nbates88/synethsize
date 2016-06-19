@@ -20,7 +20,8 @@ angular
     'ui.router',
     'angular.filter'
   ])
-  .config(function ($stateProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
+    // $urlRouterProvider.when('/playlist/:playlistUser/:playlistId', '/playlist/:playlistUser/:playlistId/song');
     $stateProvider
       .state('home', {
         url: '/',
@@ -40,11 +41,18 @@ angular
         // controller: 'AboutCtrl',
         // controllerAs: 'about'
       })
-        .state('playlist', {
-          url: '/playlist/:playlistUser/:playlistId',
-          templateUrl: 'views/playlist.html',
-          controller: 'PlaylistCtrl'
+      .state('playlist', {
+        url: '/playlist/:playlistUser/:playlistId',
+        views: {
+          '': { templateUrl: 'views/game.html', controller: 'PlaylistCtrl'},
+          'playlistView@playlist': { templateUrl: 'views/playlist.html' },
+          'songView@playlist': { templateUrl: 'views/playlist.song.html' } 
+        }
       });
+      //  .state('playlist.song', {
+      //   url: '/song',
+        
+      // });
       // .otherwise({
       //   redirectTo: '/'
       // });

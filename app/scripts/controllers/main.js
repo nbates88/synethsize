@@ -23,8 +23,6 @@ angular.module('myNewProjectApp')
   			Spotify.getUserPlaylists(userId)
   			.then(function (playlists) {
   				$scope.playlists = playlists.items
-  				$scope.chunkedPlaylists = chunk($scope.playlists, 3);
-  				console.log("playlists", $scope.chunkedPlaylists)
 			});
   		})
       }, function () {
@@ -32,21 +30,4 @@ angular.module('myNewProjectApp')
       })
   	}
 
-  	function chunk(arr, size) {
-	  var newArr = [];
-	  for (var i=0; i<arr.length; i+=size) {
-	    newArr.push(arr.slice(i, i+size));
-	  }
-	  return newArr;
-	}
-	
-
-
-  	
-  	
-    // this.awesomeThings = [
-    //   'HTML5 Boilerplate',
-    //   'AngularJS',
-    //   'Karma'
-    // ];
   });

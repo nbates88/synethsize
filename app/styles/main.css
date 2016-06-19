@@ -20,6 +20,23 @@ body {
 .columns {
   columns: 3;
 }
+
+.rows {
+  padding-bottom: 15px;
+}
+/*.game-container{
+  float: right;
+  position: relative
+}*/
+
+.contents{
+  position: center;
+}
+
+.thumbnail{
+  width: 150px;
+  height: 150px;
+}
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -42,6 +59,14 @@ body {
 
 .container-narrow > hr {
   margin: 30px 0;
+}
+.box{
+  float: right;
+}
+.player{
+  float: right;
+  margin-right: 20px; 
+
 }
 
 /* Main marketing message and sign up button */
@@ -68,6 +93,9 @@ body {
     max-width: 75%;
   }
 
+  /*.split-container{
+    max-width: 45%
+  }*/
   /* Remove the padding we set earlier */
   .header,
   .marketing,
