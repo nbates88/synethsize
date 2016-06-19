@@ -8,6 +8,7 @@ angular.module('myNewProjectApp')
     var playlistUser = $stateParams.playlistUser
     var userId = localStorage.getItem('user-id');
     var songColor;
+    $scope.score = 0;
 
   Spotify.getPlaylist(playlistUser, playlistId)
 	  .then(function (foundPlaylist) {
@@ -66,20 +67,25 @@ angular.module('myNewProjectApp')
   			$scope.songColorFour = colorArray[3];	
 		});
 	};
-
+	var wrongAnswer = 0;
 	$scope.chosenColor = function(colorValues){
 		console.log(colorValues);
 		console.log(songColor);
+		console.log(wrongAnswer);
+		
 		if(colorValues === songColor){
 			$scope.feedback = "You are correct!";
+			$scope.score = $scope.score + 1;
 			console.log("YOU WIN!!!!!!");
 		} else{
 			$scope.feedback = "Sorry, that's incorrect";
+			wrongAnswer++
+			if(wrongAnswer > 2){
+				console.log("TOO MANY WRONG GUESSES")
+			}
 			console.log("Wrong");
 		}
 	}
-
-
 
 	function hsvToRgb(h, s, v) {
 	  var r, g, b;
@@ -102,36 +108,13 @@ angular.module('myNewProjectApp')
 	  return [ Math.floor(r * 255), Math.floor(g * 255), Math.floor(b * 255) ];	 
 	}
 
-	// function HSVtoRGB(h, s, v) {
-	//     var r, g, b, i, f, p, q, t;
-	//     if (arguments.length === 1) {
-	//         s = h.s, v = h.v, h = h.h;
-	//     }
-	//     i = Math.floor(h * 6);
-	//     f = h * 6 - i;
-	//     p = v * (1 - s);
-	//     q = v * (1 - f * s);
-	//     t = v * (1 - (1 - f) * s);
-	//     switch (i % 6) {
-	//         case 0: r = v, g = t, b = p; break;
-	//         case 1: r = q, g = v, b = p; break;
-	//         case 2: r = p, g = v, b = t; break;
-	//         case 3: r = p, g = q, b = v; break;
-	//         case 4: r = t, g = p, b = v; break;
-	//         case 5: r = v, g = p, b = q; break;
-	//     }
-	//     return [ Math.round(r * 255), Math.round(g * 255), Math.round(b * 255) ];	
-	// }
-
-	
-		// var safeColors = ['00','33','66','99','cc','ff'];
-		var rand = function() {
-		    return Math.floor(Math.random() * 256);
-		};
-		var randomColor = function() {
-		    var r = rand();
-		    var g = rand();
-		    var b = rand();
-		    return r+","+g+","+b;
-		};
+	var rand = function() {
+	    return Math.floor(Math.random() * 256);
+	};
+	var randomColor = function() {
+	    var r = rand();
+	    var g = rand();
+	    var b = rand();
+	    return r+","+g+","+b;
+	};
 });

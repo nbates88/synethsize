@@ -23,6 +23,11 @@ angular
   .config(function ($stateProvider, $urlRouterProvider) {
     // $urlRouterProvider.when('/playlist/:playlistUser/:playlistId', '/playlist/:playlistUser/:playlistId/song');
     $stateProvider
+     .state('login', {
+        url: '/login',
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
       .state('home', {
         url: '/',
         templateUrl: 'views/main.html',

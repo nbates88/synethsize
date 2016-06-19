@@ -33,9 +33,19 @@ body {
   position: center;
 }
 
+.feedback{
+  position: relative;
+  left: 35px;
+}
+
 .thumbnail{
   width: 150px;
   height: 150px;
+}
+
+.playlist-thumbnail{
+  width: 300px;
+  height: 300px;
 }
 /* Custom page header */
 .header {

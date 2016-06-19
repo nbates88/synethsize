@@ -1,6 +1,7 @@
 <div class="playlist-song">
-  <div ng-class="{ 'hidden': !playSong }">
-  <h3 class="feedback" style="margin:50px;">{{feedback}}</h3>
+  <div>
+  <h3 class="feedback" style="margin:10px;">{{feedback || "Click on the first song to get started!"}}</h3>
+  <h4 class="feedback" style="margin:10px;">Score: {{score}}</h4>
       <div class="box" style="width:150px;height:150px;border:1px solid #000;margin:10px;background-color:rgb({{songColorOne}})" ng-click = "chosenColor(songColorOne)"></div>
       <div class="box" style="width:150px;height:150px;border:1px solid #000;margin:10px;background-color:rgb({{songColorTwo}})" ng-click = "chosenColor(songColorTwo)"></div>
       <div class="box" style="width:150px;height:150px;border:1px solid #000;margin:10px;background-color:rgb({{songColorThree}})" ng-click = "chosenColor(songColorThree)"></div>
