@@ -10,24 +10,10 @@
 angular.module('myNewProjectApp')
   .controller('MainCtrl', function (Spotify, $scope) {
   	var userId;
-  	$scope.login = function(){
-  		Spotify.login().then(function (token) {
-        Spotify.setAuthToken(token);
-        Spotify.getCurrentUser()
-  		.then(function(foundUser){
-  			return foundUser.id;
-  		})
-  		.then(function(userId){
-  			console.log(userId)
-  			localStorage.setItem('user-id', userId)
-  			Spotify.getUserPlaylists(userId)
-  			.then(function (playlists) {
-  				$scope.playlists = playlists.items
-			});
-  		})
-      }, function () {
-        console.log('didn\'t log in');
-      })
-  	}
+    userId = localStorage.getItem('user-id')
+      Spotify.getUserPlaylists(userId)
+        .then(function (playlists) {
+          $scope.playlists = playlists.items
+        });
 
   });

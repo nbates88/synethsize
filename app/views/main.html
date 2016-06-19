@@ -1,15 +1,8 @@
-  <div class= "container">
-   <section ng-controller="MainCtrl">
-   <div class = "jumbotron" ng-hide = "playlists.length" >
-     <h1>Welcome to Synethsize!</h1>
-     <h3>Login to Your Spotify Account to Play</h3>
-      <button class="btn btn-raised btn-success" ng-click="login()">Login with Spotify</button>
-   </div>
-<div class="columns">
-  <div class = "rows" ng-repeat="playlist in playlists">
-    {{}}<a ui-sref="playlist({playlistId: playlist.id, playlistUser: playlist.owner.id})"><img class="playlist-thumbnail" ng-src="{{playlist.images[0].url || 'https://placeholdit.imgix.net/~text?txtsize=28&txt=No+Image&w=300&h=300'}}"/></a></div>
+<section ng-controller="MainCtrl">
+<div class= "container">
+  <div class="columns">
+    <div class = "rows" ng-repeat="playlist in playlists">
+      {{}}<a ui-sref="playlist({playlistId: playlist.id, playlistUser: playlist.owner.id})"><img class="playlist-thumbnail" ng-src="{{playlist.images[0].url || 'https://placeholdit.imgix.net/~text?txtsize=28&txt=No+Image&w=300&h=300'}}"/></a></div>
   </div>
-</div>
-</section>
 </div>
 
