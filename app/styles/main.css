@@ -17,6 +17,11 @@ body {
   padding-right: 15px;
 }
 
+.is-disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
 .columns {
   columns: 3;
 }

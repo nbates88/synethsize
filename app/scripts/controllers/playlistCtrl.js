@@ -23,7 +23,7 @@ angular.module('myNewProjectApp')
 		var h;
 		var s;
 		var v;
-
+		$scope.dynamicClass = "";
 		$scope.feedback = "Make a guess!";
 		$scope.src = $sce.trustAsResourceUrl(songUrl);
 
@@ -65,27 +65,25 @@ angular.module('myNewProjectApp')
   			$scope.songColorTwo = colorArray[1];
   			$scope.songColorThree = colorArray[2];
   			$scope.songColorFour = colorArray[3];	
+
+  			var wrongAnswer = 0;
+
+  			$scope.chosenColor = function(colorValues){
+			if(colorValues === songColor){
+				$scope.feedback = "You are correct!";
+				$scope.score = $scope.score + 1;
+			} else{
+				$scope.feedback = "Sorry, that's incorrect";
+				wrongAnswer++
+				if(wrongAnswer > 1){
+					$scope.feedback = "Sorry, you've run out of guesses for this song!"
+					$scope.dynamicClass = "is-disabled";
+				}
+				}
+			}
 		});
 	};
-	var wrongAnswer = 0;
-	$scope.chosenColor = function(colorValues){
-		console.log(colorValues);
-		console.log(songColor);
-		console.log(wrongAnswer);
-		
-		if(colorValues === songColor){
-			$scope.feedback = "You are correct!";
-			$scope.score = $scope.score + 1;
-			console.log("YOU WIN!!!!!!");
-		} else{
-			$scope.feedback = "Sorry, that's incorrect";
-			wrongAnswer++
-			if(wrongAnswer > 2){
-				console.log("TOO MANY WRONG GUESSES")
-			}
-			console.log("Wrong");
-		}
-	}
+
 
 	function hsvToRgb(h, s, v) {
 	  var r, g, b;
