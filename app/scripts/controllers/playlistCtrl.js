@@ -9,7 +9,7 @@ angular.module('myNewProjectApp')
     var userId = localStorage.getItem('user-id');
     var songColor;
     $scope.score = 0;
-
+ 
   Spotify.getPlaylist(playlistUser, playlistId)
 	  .then(function (foundPlaylist) {
 	    $scope.playlist = foundPlaylist;
@@ -18,8 +18,9 @@ angular.module('myNewProjectApp')
 	    console.log($scope.playlistSongs);
 	  });
 
-	$scope.playSong = function(songUrl, songId){
-
+	$scope.playSong = function(song, songUrl, songId){
+		var idx = $scope.playlistSongs.indexOf(song)
+		console.log(song)
 		var h;
 		var s;
 		var v;
@@ -72,12 +73,26 @@ angular.module('myNewProjectApp')
 			if(colorValues === songColor){
 				$scope.feedback = "You are correct!";
 				$scope.score = $scope.score + 1;
+				if(idx === $scope.playlistSongs.length - 1){
+					window.alert("Nice job! You scored: " + $scope.score);
+				} else{
+					var nextSong = $scope.playlistSongs[idx + 1]
+					$scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
+				}
+				
+
 			} else{
 				$scope.feedback = "Sorry, that's incorrect";
 				wrongAnswer++
 				if(wrongAnswer > 1){
 					$scope.feedback = "Sorry, you've run out of guesses for this song!"
 					$scope.dynamicClass = "is-disabled";
+					setTimeout(myFunction, 2000);
+					function myFunction() {
+						var nextSong = $scope.playlistSongs[idx + 1]
+						$scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
+					}
+					
 				}
 				}
 			}

@@ -1,8 +1,8 @@
 <div class="playlist">
     <div>
       <div class="columns">
-        <div class = "rows" ng-repeat="song in playlistSongs" ng-hide="!song.track.preview_url" ng-click = "playSong(song.track.preview_url, song.track.id)">
+        <div class = "rows" ng-repeat="song in playlistSongs" ng-hide="!song.track.preview_url" ng-click = "playSong(song, song.track.preview_url, song.track.id)">
           {{}}<a><img class = "thumbnail" ng-src="{{song.track.album.images[1].url || 'https://placeholdit.imgix.net/~text?txtsize=28&txt=No+Image&w=300&h=300'}}"/></a></div>
         </div>
-  </section>
+	  </div>
 </div>
