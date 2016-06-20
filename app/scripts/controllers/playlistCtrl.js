@@ -41,7 +41,7 @@ angular.module('myNewProjectApp')
   			var tempo = audioFeatures.tempo / 250
 
   			var veAverage = (valence + energy) / 2
-  			h = 1 - ((key + valence + energy + loudness + danceability + mode) / 6);
+  			h =key
   			s = (loudness + energy) / 2;
   			v = (valence + danceability + tempo) / 3 
   			// Math.abs(audioFeatures.loudness * 0.066);
@@ -76,8 +76,13 @@ angular.module('myNewProjectApp')
 				if(idx === $scope.playlistSongs.length - 1){
 					window.alert("Nice job! You scored: " + $scope.score);
 				} else{
-					var nextSong = $scope.playlistSongs[idx + 1]
-					$scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
+					setTimeout(myFunction, 1000);
+					function myFunction() {
+						var nextSong = $scope.playlistSongs[idx + 1]
+						$scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
+					}
+					// var nextSong = $scope.playlistSongs[idx + 1]
+					// $scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
 				}
 				
 
@@ -87,11 +92,25 @@ angular.module('myNewProjectApp')
 				if(wrongAnswer > 1){
 					$scope.feedback = "Sorry, you've run out of guesses for this song!"
 					$scope.dynamicClass = "is-disabled";
-					setTimeout(myFunction, 2000);
-					function myFunction() {
-						var nextSong = $scope.playlistSongs[idx + 1]
-						$scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
-					}
+
+						if(idx === $scope.playlistSongs.length - 1){
+							window.alert("Nice job! You scored: " + $scope.score);
+						} else{
+							setTimeout(myFunction, 1000);
+							function myFunction() {
+								var nextSong = $scope.playlistSongs[idx + 1]
+								$scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
+							}
+							// var nextSong = $scope.playlistSongs[idx + 1]
+							// $scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
+						}
+
+
+					// setTimeout(myFunction, 1000);
+					// function myFunction() {
+					// 	var nextSong = $scope.playlistSongs[idx + 1]
+					// 	$scope.playSong(nextSong, nextSong.track.preview_url, nextSong.track.id)
+					// }
 					
 				}
 				}
