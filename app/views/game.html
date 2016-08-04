@@ -1,19 +1,15 @@
-
- <div class="container">
-  <section ng-controller="PlaylistCtrl">
-   <div class = "jumbotron">
-     <h1>{{playlist.name}}</h1>
-   
-   <div class="row">
-
-    <!-- COLUMN ONE NAMED VIEW -->
-    <div class="col-sm-6 split-container">
-       <div class="contents" ui-view="playlistView"></div>
-    </div>
-    
-    <!-- COLUMN TWO NAMED VIEW -->
-    <div class="col-sm-6 split-container">
-        <div class"contents" ui-view="songView"></div>
-    </div>
-
-</div>    
+<div class="container">
+    <section ng-controller="PlaylistCtrl">
+        <div class="jumbotron">
+            <h1>{{playlist.name}}</h1>
+            <div class="row">
+                <div class="col-sm-6 split-container">
+                    <div class="contents" ui-view="playlistView"></div>
+                </div>
+                <div class="col-sm-6 split-container">
+                    <div class="contents" ui-view="songView"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
