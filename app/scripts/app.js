@@ -63,7 +63,7 @@ angular
       // });
   })
   .config(function (SpotifyProvider) {
-  SpotifyProvider.setClientId('6588d7afa3c94a39a2a081c9ef2d64c9');
+  SpotifyProvider.setClientId('XXXXX');
   SpotifyProvider.setRedirectUri('http://localhost:9000/#/callback');
   SpotifyProvider.setScope('user-read-private playlist-read-private playlist-modify-private playlist-modify-public');
   // If you already have an auth token
